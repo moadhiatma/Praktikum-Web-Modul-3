@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modul 3</title>
+    <style>
+        #panjang {
+            margin-top: 5px;
+        }
+        #lebar {
+            margin-top: 5px;
+        }
+        #tombol {
+            margin-left: 5px;
+        }
+
+        #bckgrnd {
+            background-color: black;
+            width: 400px;
+            height: 400px;
+        }
+
+        #alignm {
+            text-align: center;
+        }
+
+        #ubah {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="bckgrnd">
+        <p id="alignm">Hai!</p>
+    </div>
+    
+    <br>
+        <button id="alert">alert ukuran kotak</button>
+        <button id="tombol">ubah warna kotak</button>
+    </br>
+
+    <form>
+        <input type="text" placeholder="masukkan panjang" id="panjang"><br>
+        <input type="text" placeholder="masukkan lebar" id="lebar">
+    </form>
+
+    <button id="ubah">Ubah ukuran</button>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <script>
+
+        let kotak = document.getElementById('bckgrnd')
+        let tombol = document.getElementById('tombol')
+
+        $('#alert').on('click', function () {
+            alert("Ukuran kotak sekarang adalah " + $("#bckgrnd").width() + " x " + $("#bckgrnd").height())
+        });
+
+        function between(min, max) {
+            return Math.floor(
+                Math.random() * (max - min) + min
+            )
+        }
+
+        let color = ['red', 'green', 'blue', 'yellow', 'black']
+
+        tombol.addEventListener("click", function () {
+            kotak.style.backgroundColor = color[between(0, color.length)]
+        })
+
+        let inputPanjang = document.getElementById('panjang')
+        let inputLebar = document.getElementById('lebar')
+        let ubahKotak = document.getElementById('ubah')
+
+        ubahKotak.addEventListener("click", function () {
+            kotak.style.width = inputPanjang.value + "px"
+            kotak.style.height = inputLebar.value + "px"
+        })
+
+    </script>
+</body>
+</html>

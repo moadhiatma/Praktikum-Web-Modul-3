@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-Praktikum Kegiatan 2</title>
+</head>
+<body>
+    <div>
+        <input type="text" id="inputAngka" placeholder="Masukkan Angka", value="">
+        <button onclick="bilPrima()" id="submit" type="submit">CEK</button> <br />
+    </div>
+    <p id="output"></p>
+
+    <script>
+        function bilPrima() {
+            let inputAngka = document.getElementById("inputAngka").value;
+            value = parseInt(inputAngka)
+    
+            let result =  value + " adalah bilangan prima"
+
+            if (value == 1) {
+                result = value + " bukan bilangan prima"
+            }
+
+            for(var i = 2; i < value; i++) {
+                if(value % i === 0) {
+                result = value + " bukan bilangan prima";
+                }
+            } 
+      
+        document.getElementById('output').innerHTML = result;
+        }
+    </script>
+</body>
+</html>
